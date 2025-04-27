@@ -1,124 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Ach Baidhawi Profile</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Anniversary Sayangku Cintaku Liakuu</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      touch-action: none;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    #heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20vmin;
+      height: 20vmin;
+      background: red;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      animation: heartbeat 1.5s infinite;
+      z-index: 2;
+    }
+
+    #heart::before,
+    #heart::after {
+      content: "";
+      position: absolute;
+      width: 20vmin;
+      height: 20vmin;
+      background: red;
+      border-radius: 50%;
+    }
+
+    #heart::before {
+      top: -10vmin;
+      left: 0;
+    }
+
+    #heart::after {
+      left: 10vmin;
+      top: 0;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(-45deg); }
+      25% { transform: translate(-50%, -50%) scale(1.1) rotate(-45deg); }
+      50% { transform: translate(-50%, -50%) scale(1.2) rotate(-45deg); }
+      75% { transform: translate(-50%, -50%) scale(1.1) rotate(-45deg); }
+    }
+
+    #audioControl {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.7);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 18px;
+      color: #d6336c;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    #surpriseBtn {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff6b81;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 3;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    #surpriseBtn:hover {
+      background: #d6336c;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    #specialMessage {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 6vmin;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 2s ease-in-out;
+      text-align: center;
+      white-space: pre-line;
+    }
+  </style>
 </head>
 <body>
-    <header >
-        <div class="all">
-            <nav>
-                <h1 class="logo">Ubay.</h1>
-                <ul>
-                    <li><a href="#Home">Home</a></li>
-                    <li><a href="#Pendidikan">Pendidikan</a></li>
-                    <li><a href="#Jadwal Kuliah">Jadwal Kuliah</a></li>
-                    <li><a href="#Aktivitas">Aktivitas</a></li>
-                </ul>
-            </nav>
 
-            <div class="intro" id="Home">
-                <div class="text">
-                    <h2>Hi, I'm ACH BAIDHAWI</h2>
-                    <h3>Mahasiswa UNIBA Madura</h3>
-                    <p>Saya biasa dipanggil Ubay, saya dari Desa Banaresep Barat Kecamatan Lenteng Kabupaten Sumenep. Saya masuk kuliah di UNIBA Madura dari tahun 2023 prodi saya Informatika</p>
-                </div>
-                <div class="image">
-                    <img src="aku.jpg" alt="">
-                </div>
-            </div>
+<!-- Music -->
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="https://github.com/ubay2106/anniv5years/blob/main/KOMANG.mp3" type="audio/mp3">
+  </audio>  
 
-            <div class="kontak">
-                <a href="https://www.instagram.com/xmasby_/profilecard/?igsh=MXh1dTZoaG15ZHg2dw=="><img src="instagram.png" alt="Instagram"></a>
-                <a href="https://wa.me/6287844643553/"><img src="wa.png" alt="Whatsapp"></a>
-            </div>
-        </div>
-    </header>
-    <div class="pdg" id="Pendidikan"></div>
-    <div class="pddk" >
-      
-        <h1>Riwayat Pendidikan</h1>
-        
-    
-        <div class="riwayat">
-          <h2>MI Darussalam</h2>
-          <p>Tahun: 2009 - 2016</p>
-          <p>Deskripsi: Pendidikan dasar yang memberikan fondasi awal dalam belajar dan mengembangkan keterampilan sosial.</p>
-        </div>
-    
-    
-        <div class="riwayat">
-          <h2>MTs Darussalam</h2>
-          <p>Tahun: 2016 - 2019</p>
-          <p>Deskripsi: Pendidikan menengah pertama yang memperkenalkan ilmu-ilmu dasar yang lebih kompleks.</p>
-        </div>
-    
-    
-        <div class="riwayat">
-          <h2>SMAS Tahfidz Darul Ulum</h2>
-          <p>Tahun: 2019 - 2022</p>
-          <p>Deskripsi: Pendidikan menengah atas dengan fokus pada ilmu pengetahuan dan persiapan ke perguruan tinggi.</p>
-        </div>
-    
-    
-        <div class="riwayat">
-          <h2>Universitas Bahaudin Mudhary</h2>
-          <p>Tahun: 2023 - Sekarang</p>
-          <p>Deskripsi: Program sarjana di bidang Teknik Informatika yang menekankan pada pemrograman, data, dan pengembangan aplikasi.</p>
-        </div>
-    
-      </div>
+<!-- Music Control -->
+<div id="audioControl">▶️ Play Music</div>
 
-      <div class="pdg" id="Jadwal Kuliah"></div>
-      <div class="jkuliah" >
-        
-        <h4>Jadwal Kuliah</h4>
-        
-        <div class="Jadwal">
-            <h2>Senin</h2>
-            <p>Jam 06.30 WIB - WEB Programming</p>
-            <p>Jam 10.20 WIB - English 3</p>
-            <p>Jam 14.30 WIB - Database</p>
-          </div>
-    
-        <div class="Jadwal">
-            <h2>Selasa</h2>
-            <p>Jam 16.30 WIB - Algorithm Design And Analysis</p>
-          </div>
-    
-        <div class="Jadwal">
-            <h2>Rabu</h2>
-            <p>Jam 09.00 WIB - Practice Database</p>
-            <p>Jam 01.00 WIB - Practice OOP</p>
-            <p>Jam 15.00 WIB - Practice OS</p>
-          </div>
-    
-        <div class="Jadwal">
-            <h2>Kamis</h2>
-            <p>Jam 09.30 WIB - Statistic</p>
-            <p>Jam 01.00 WIB - Practice WEB</p>
-            <p>Jam 14.30 WIB - Indonesian Dan Scientific Writing</p>
-          </div>
+<!-- Flying Text and Hearts -->
+<canvas id="canvas"></canvas>
 
-        <div class="Jadwal">
-            <h2>Jum'at</h2>
-            <p>Jam 08.00 WIB - Operation System</p>
-            <p>Jam 12.50 WIB - Object Oriented Programming</p>
-          </div>
-    
-      </div>
+<!-- Heart Shape in Center -->
+<div id="heart"></div>
 
-      <div class="pdg" id="Aktivitas"></div>
-      <div class="activity" >
-        
-        <div class="caption">
-            <h2>My Activity</h2>
-            <h3>Mahasiswa UNIBA Madura</h3>
-        <p>Sebelum saya kuliah, saya mondok di Darul Ulum Banyuanyar selama 3 Tahun disana saya mengikuti organisasi English Club, Ramadhan Class dsb. Setelah saya kuliah saya mengikuti organisasi FKMSB Forum Komunikasi Mahasiswa Santri Banyuanyar) dan juga saya ikut HMI (Himpunan Mahasiswa Islam)</p>
-        </div>
-        <div class="image">
-            <img src="aku.jpg" alt="">
-        </div>
-    </div>
+<!-- Surprise Button -->
+<button id="surpriseBtn">Lopyuu Moree</button>
+
+<!-- Special Message -->
+<div id="specialMessage">Thank you for 1825 days, Sayang Banget Sama Ayangku Cintaku Liaku💖</div>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  const colors = ["#ff6b81", "#feca57", "#48dbfb", "#1dd1a1", "#ff9ff3", "#5f27cd"];
+  const messages = ["Happy Anniversary", "Sayangku", "Cintaku", "Liakuu", "Love", "Forever", "Always", "My Everything"];
+  const hearts = [];
+
+  class HeartText {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.speedX = (Math.random() - 0.5) * 2;
+      this.speedY = (Math.random() - 0.5) * 2;
+      this.opacity = Math.random() * 0.5 + 0.5;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.text = messages[Math.floor(Math.random() * messages.length)];
+      this.fontSize = Math.random() * (window.innerWidth < 600 ? 20 : 30) + 20;
+    }
+
+    draw() {
+      ctx.globalAlpha = this.opacity;
+      ctx.font = `${this.fontSize}px "Comic Sans MS"`;
+      ctx.fillStyle = this.color;
+      ctx.fillText(this.text, this.x, this.y);
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0) {
+        this.reset();
+      }
+    }
+  }
+
+  class HeartIcon {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.speedX = (Math.random() - 0.5) * 1;
+      this.speedY = (Math.random() - 0.5) * 1;
+      this.opacity = Math.random() * 0.5 + 0.5;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.size = Math.random() * (window.innerWidth < 600 ? 10 : 15) + 10;
+    }
+
+    draw() {
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.bezierCurveTo(this.x + this.size / 2, this.y - this.size,
+                        this.x + this.size * 2, this.y + this.size / 3,
+                        this.x, this.y + this.size * 2);
+      ctx.bezierCurveTo(this.x - this.size * 2, this.y + this.size / 3,
+                        this.x - this.size / 2, this.y - this.size,
+                        this.x, this.y);
+      ctx.fill();
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0) {
+        this.reset();
+      }
+    }
+  }
+
+  for (let i = 0; i < 50; i++) {
+    hearts.push(new HeartText());
+    hearts.push(new HeartIcon());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    hearts.forEach((h) => {
+      h.update();
+      h.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // Audio control
+  const audio = document.getElementById("bgMusic");
+  const audioControl = document.getElementById("audioControl");
+
+  audioControl.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      audioControl.textContent = "⏸️ Pause Music";
+    } else {
+      audio.pause();
+      audioControl.textContent = "▶️ Play Music";
+    }
+  });
+
+  // Special message muncul otomatis
+  const specialMessage = document.getElementById("specialMessage");
+  setTimeout(() => {
+    specialMessage.style.opacity = 1;
+  }, 4000); // Muncul setelah 4 detik
+
+  // Surprise Button
+  const surpriseBtn = document.getElementById("surpriseBtn");
+  surpriseBtn.addEventListener("click", () => {
+    for (let i = 0; i < 20; i++) {
+      hearts.push(new HeartIcon());
+    }
+    surpriseBtn.style.display = "none"; // Hide button after clicked
+  });
+</script>
+
 </body>
 </html>
